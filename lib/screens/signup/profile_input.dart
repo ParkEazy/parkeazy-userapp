@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/parser.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parkeazy_user_app/consts/app_color.dart';
 import 'package:parkeazy_user_app/consts/app_path.dart';
+import 'package:parkeazy_user_app/route/route_constants.dart';
 import 'package:parkeazy_user_app/utils/extensions.dart';
 
 class ProfileInputPage extends StatefulWidget {
@@ -117,7 +117,7 @@ class _ProfileInputPageState extends State<ProfileInputPage> {
             10.toHeightBox,
             Center(
               child: GestureDetector(
-                // onTap: () => Navigator.pushNamed(context, OtpPageRoute),
+                onTap: () => Navigator.pushNamed(context, HomePageRoute),
                 child: Container(
                   // width: AppSizes.width(context) * 0.5,
                   alignment: Alignment.center,
@@ -127,7 +127,7 @@ class _ProfileInputPageState extends State<ProfileInputPage> {
                     gradient: AppColor.accentGradient,
                   ),
                   child:
-                      'Send Started'.toMedium(size: 20, color: AppColor.white),
+                      'Get Started'.toMedium(size: 20, color: AppColor.white),
                 ),
               ),
             ),

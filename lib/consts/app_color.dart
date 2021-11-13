@@ -4,7 +4,12 @@ class AppColor {
   static const Color darkRed = Color(0xffe22803);
 
   static const LinearGradient accentGradient = LinearGradient(
-    colors: [Color(0xff613eea), Color(0xff566ded)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color(0xff613eea),
+      Color(0xff566ded),
+    ],
   );
   static const Color lightgreen = Color(0xff86C60D);
 

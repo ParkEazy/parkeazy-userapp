@@ -148,9 +148,9 @@ extension TextWidget on String {
       this,
       textAlign: align ?? TextAlign.start,
       style: GoogleFonts.roboto(
-        color: color ?? AppColor.black,
-        fontSize: size ?? 14,
-        fontWeight: weight ?? FontWeight.w500,
+        color: color ?? AppColor.darkGrey,
+        fontSize: size ?? 12,
+        fontWeight: weight ?? FontWeight.w300,
       ),
     );
   }

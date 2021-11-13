@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ParkEazy',
       debugShowCheckedModeBanner: false,
-      initialRoute: SignUpRoute,
+      initialRoute: HomePageRoute,
       onGenerateRoute: generateRoute,
       builder: (context, child) {
         return ScrollConfiguration(
