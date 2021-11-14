@@ -111,121 +111,147 @@ class _MapPageState extends State<MapPage> {
               ],
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: AppSizes.height(context) * 0.45,
-              child: PageView(
-                controller: PageController(viewportFraction: 0.9),
-                children: [
-                  Container(
-                    margin: 20.insetsAll,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: 15.toBorderRadius,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        AspectRatio(
-                          aspectRatio: 3 / 1,
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                            child: Image.network(
-                              'https://assets-us-01.kc-usercontent.com/0542d611-b6d8-4320-a4f4-35ac5cbf43a6/b7abb6c2-ba7b-407f-bf0f-d3b156023b88/parking-lot-facebook.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                SvgPicture.asset('${AppPath.svg}star.svg'),
-                                5.toWidthBox,
-                                '4.5 (10 reviews)'.toLightText(
-                                  color: AppColor.darkGrey,
-                                  size: 12,
-                                ),
-                              ],
-                            ),
-                            5.toHeightBox,
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    "Growel's Parking Lot".toBold(size: 24),
-                                  ],
-                                ),
-                                const Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    '₹30/-'.toBold(size: 18),
-                                    'per Hour'.toRegular(size: 12),
-                                  ],
-                                )
-                              ],
-                            ),
-                            5.toHeightBox,
-                            Row(
-                              children: [
-                                SvgPicture.asset(
-                                  '${AppPath.svg}map_pin.svg',
-                                  height: 15,
-                                  color: AppColor.grey,
-                                ),
-                                5.toWidthBox,
-                                'Parking lot, 5, Western Express Hwy'
-                                    .toLightText(),
-                              ],
-                            ),
-                          ],
-                        ).marginAll(25),
-                        Wrap(
-                          alignment: WrapAlignment.spaceBetween,
-                          spacing: 15,
-                          runSpacing: 10,
-                          children: const [
-                            SvgAndText(
-                              text: '5 Mins  (12 KM)',
-                              svg: 'map_pin',
-                            ),
-                            SvgAndText(
-                              text: '10 Slots left',
-                              svg: 'p',
-                            ),
-                            SvgAndText(
-                              text: '123-456-789',
-                              svg: 'call',
-                            ),
-                          ],
-                        ),
-                        20.toHeightBox,
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(8),
-                                bottomRight: Radius.circular(8),
-                              ),
-                              gradient: AppColor.accentGradient,
-                            ),
-                            child: 'Book Now'.toMedium(color: AppColor.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+            child: MapPageView(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MapPageView extends StatelessWidget {
+  const MapPageView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: AppSizes.height(context) * 0.45,
+      child: PageView(
+        controller: PageController(viewportFraction: 0.9),
+        children: const [
+          ParkingItem(),
+          ParkingItem(),
+          ParkingItem(),
+        ],
+      ),
+    );
+  }
+}
+
+class ParkingItem extends StatelessWidget {
+  const ParkingItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: 20.insetsAll,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: 15.toBorderRadius,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AspectRatio(
+            aspectRatio: 3 / 1,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+              child: Image.network(
+                'https://assets-us-01.kc-usercontent.com/0542d611-b6d8-4320-a4f4-35ac5cbf43a6/b7abb6c2-ba7b-407f-bf0f-d3b156023b88/parking-lot-facebook.jpg',
+                fit: BoxFit.cover,
               ),
             ),
           ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  SvgPicture.asset('${AppPath.svg}star.svg'),
+                  5.toWidthBox,
+                  '4.5 (10 reviews)'.toLightText(
+                    color: AppColor.darkGrey,
+                    size: 12,
+                  ),
+                ],
+              ),
+              5.toHeightBox,
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      "Growel's Parking Lot".toBold(size: 24),
+                    ],
+                  ),
+                  const Spacer(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      '₹30/-'.toBold(size: 18),
+                      'per Hour'.toRegular(size: 12),
+                    ],
+                  )
+                ],
+              ),
+              5.toHeightBox,
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    '${AppPath.svg}map_pin.svg',
+                    height: 15,
+                    color: AppColor.grey,
+                  ),
+                  5.toWidthBox,
+                  'Parking lot, 5, Western Express Hwy'.toLightText(),
+                ],
+              ),
+            ],
+          ).marginAll(25),
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            spacing: 15,
+            runSpacing: 10,
+            children: const [
+              SvgAndText(
+                text: '5 Mins  (12 KM)',
+                svg: 'map_pin',
+              ),
+              SvgAndText(
+                text: '10 Slots left',
+                svg: 'p',
+              ),
+              SvgAndText(
+                text: '123-456-789',
+                svg: 'call',
+              ),
+            ],
+          ),
+          20.toHeightBox,
+          Expanded(
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
+                  ),
+                  gradient: AppColor.accentGradient,
+                ),
+                child: 'Book Now'.toMedium(color: AppColor.white),
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:parkeazy_user_app/route/route_constants.dart';
 import 'package:parkeazy_user_app/screens/home_screen/home_screen.dart';
+import 'package:parkeazy_user_app/screens/home_screen/pages/confirmation_page.dart';
+import 'package:parkeazy_user_app/screens/home_screen/pages/parking_detail.dart';
 import 'package:parkeazy_user_app/screens/signup/otp.dart';
 import 'package:parkeazy_user_app/screens/signup/profile_input.dart';
 import 'package:parkeazy_user_app/screens/signup/signup.dart';
@@ -10,6 +12,12 @@ Route<dynamic> generateRoute(RouteSettings setting) {
   switch (setting.name) {
     case SignUpRoute:
       return MaterialPageRoute(builder: (context) => const SignUpPage());
+    case ParkingDetailRoute:
+      return MaterialPageRoute(builder: (context) => const ParkingDetail());
+    case MainPageRoute:
+      return MaterialPageRoute(builder: (context) => const HomeScreen());
+    case ConfirmationPageRoute:
+      return MaterialPageRoute(builder: (context) => const ConfirmationPage());
     case HomePageRoute:
       return MaterialPageRoute(builder: (context) => const HomeScreen());
     case ProfileInputRoute:

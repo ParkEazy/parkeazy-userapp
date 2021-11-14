@@ -118,7 +118,7 @@ extension TextWidget on String {
         color: color ?? AppColor.black,
         fontSize: size ?? 18,
         fontWeight: weight ?? FontWeight.w500,
-        decoration: strike ? TextDecoration.lineThrough : TextDecoration.none,
+        decoration: strike ? TextDecoration.underline : TextDecoration.none,
       ),
     );
   }

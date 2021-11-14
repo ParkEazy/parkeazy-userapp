@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:parkeazy_user_app/consts/app_color.dart';
 import 'package:parkeazy_user_app/consts/app_path.dart';
 import 'package:parkeazy_user_app/screens/home_screen/pages/map_page.dart';
+import 'package:parkeazy_user_app/screens/notification/notification.dart';
+import 'package:parkeazy_user_app/screens/profile.dart/profile.dart';
 import 'package:parkeazy_user_app/utils/extensions.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> pages = const [
     MapPage(),
-    MapPage(),
-    MapPage(),
-    MapPage(),
+    SizedBox(),
+    NotificationPage(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: pages,
       ),
       bottomNavigationBar: Container(
+        padding: 20.toHorizontal,
         height: 75,
         color: Colors.white,
         child: Row(

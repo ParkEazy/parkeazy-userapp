@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:parkeazy_user_app/consts/app_color.dart';
 import 'package:parkeazy_user_app/route/route_constants.dart';
 import 'package:parkeazy_user_app/route/router.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ParkEazy',
       debugShowCheckedModeBanner: false,
-      initialRoute: HomePageRoute,
+      initialRoute: MainPageRoute,
       onGenerateRoute: generateRoute,
       builder: (context, child) {
         return ScrollConfiguration(
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         );
       },
       theme: ThemeData(
+        textTheme: GoogleFonts.robotoTextTheme(),
         primarySwatch: AppColor.accentMaterial,
       ),
     );
